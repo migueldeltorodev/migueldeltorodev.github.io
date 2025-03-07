@@ -254,47 +254,64 @@ export default function LandingPage() {
           <FloatingElement shape="circle" color="#60A5FA" size={70} bottom="10%" left="10%" duration={38} delay={2} />
           <div className="container relative z-10">
             <motion.div
-              className="text-center mb-16"
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeIn}
+                className="text-center mb-16"
+                initial="initial"
+                whileInView="animate"
+                viewport={{once: true}}
+                variants={fadeIn}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Historias de éxito</h2>
               <p className="text-lg text-blue-700 max-w-2xl mx-auto">
-                Conozca a algunos de los egresados de nuestro programa que ahora están haciendo contribuciones significativas
+                Conozca a algunos de los egresados de nuestro programa que ahora están haciendo contribuciones
+                significativas
                 a ETECSA y a la infraestructura de telecomunicaciones de Cuba
               </p>
             </motion.div>
 
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={staggerChildren}
+                className="grid grid-cols-1 md:grid-cols-4 gap-8"
+                initial="initial"
+                whileInView="animate"
+                viewport={{once: true}}
+                variants={staggerChildren}
             >
-              {[1, 2, 3].map((i) => (
-                <motion.div key={i} variants={fadeIn}>
-                  <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <div className="aspect-[4/3] relative">
-                      <Image
-                        src={`/placeholder.svg?height=300&width=400`}
-                        alt={`Graduate Success Story ${i}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-bold text-blue-900 mb-2">Graduate Name</h3>
-                      <p className="text-sm text-blue-600 mb-4">Position at ETECSA</p>
-                      <p className="text-gray-700">
-                        "The ETECSA graduate program provided me with the perfect foundation to build my career in
-                        telecommunications. The mentorship and hands-on experience were invaluable."
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+              {[
+                {
+                  name: "Alejandro Nuñez",
+                  position: "Especialista en gestión de recursos humanos",
+                  testimonial: "De manera general fue productivo, aprendí de la empresa y sus diferentes áreas, cuando lo único que sabía era el nombre. Pude recibir de primera mano conocimientos sobre las funciones y procesos dentro de la empresa. Obtuve contactos, hice amistades y cree relaciones que tiempo después pude aprovechar.",
+                  imageSrc: "/placeholder.svg?height=300&width=400"
+                },
+                {
+                  name: "María Rodríguez",
+                  position: "Analista de marketing digital",
+                  testimonial: "La experiencia superó mis expectativas. No solo pude aplicar lo aprendido en mis estudios, sino que también descubrí nuevas herramientas y metodologías que han transformado mi visión profesional. El equipo me integró desde el primer día y me permitió participar en proyectos reales.",
+                  imageSrc: "/placeholder.svg?height=300&width=400"
+                },
+                {
+                  name: "Carlos Gutiérrez",
+                  position: "Desarrollador de software",
+                  testimonial: "Mi paso por la empresa me permitió fortalecer mis conocimientos técnicos y desarrollar habilidades blandas esenciales. Trabajar en equipos multidisciplinarios me enseñó la importancia de la comunicación efectiva y la colaboración. Esta experiencia fue determinante para definir mi ruta profesional.",
+                  imageSrc: "/placeholder.svg?height=300&width=400"
+                }
+              ].map((graduate, i) => (
+                  <motion.div key={i} variants={fadeIn}>
+                    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                      <div className="aspect-[4/3] relative">
+                        <Image
+                            src={graduate.imageSrc}
+                            alt={`Graduate Success Story - ${graduate.name}`}
+                            fill
+                            className="object-cover"
+                        />
+                      </div>
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-bold text-blue-900 mb-2">{graduate.name}</h3>
+                        <p className="text-sm text-blue-600 mb-4">{graduate.position}</p>
+                        <p className="text-gray-700">"{graduate.testimonial}"</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
               ))}
             </motion.div>
           </div>
@@ -302,22 +319,22 @@ export default function LandingPage() {
 
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-blue-600 to-teal-400 text-white relative">
-          <FloatingElement shape="donut" color="#FFFFFF" size={100} top="-10%" left="5%" duration={40} />
+          <FloatingElement shape="donut" color="#FFFFFF" size={100} top="-10%" left="5%" duration={40}/>
           <FloatingElement
-            shape="triangle"
-            color="#FFFFFF"
-            size={80}
-            bottom="-5%"
-            right="10%"
-            duration={42}
-            delay={1}
+              shape="triangle"
+              color="#FFFFFF"
+              size={80}
+              bottom="-5%"
+              right="10%"
+              duration={42}
+              delay={1}
           />
           <motion.div
-            className="container text-center relative z-10"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerChildren}
+              className="container text-center relative z-10"
+              initial="initial"
+              whileInView="animate"
+              viewport={{once: true}}
+              variants={staggerChildren}
           >
             <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeIn}>
               Únete al curso de iniciación de ETECSA
@@ -330,7 +347,7 @@ export default function LandingPage() {
               <a href="https://etecsa.cu">
                 <ShineButton variant="outline" className="border-white text-blue-600 hover:bg-blue-500">
                   Obtener más información
-                </ShineButton> 
+                </ShineButton>
               </a>
             </motion.div>
           </motion.div>
@@ -338,8 +355,8 @@ export default function LandingPage() {
       </main>
 
       <footer className="bg-blue-900 text-white py-12 relative">
-        <FloatingElement shape="circle" color="#1E3A8A" size={120} top="-10%" right="5%" duration={45} />
-        <FloatingElement shape="square" color="#1E3A8A" size={100} bottom="-5%" left="10%" duration={48} delay={2} />
+        <FloatingElement shape="circle" color="#1E3A8A" size={120} top="-10%" right="5%" duration={45}/>
+        <FloatingElement shape="square" color="#1E3A8A" size={100} bottom="-5%" left="10%" duration={48} delay={2}/>
         <div className="container relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
