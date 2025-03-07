@@ -269,7 +269,7 @@ export default function LandingPage() {
             </motion.div>
 
             <motion.div
-                className="grid grid-cols-1 md:grid-cols-4 gap-8"
+                className="grid grid-cols-1 md:grid-cols-3 gap-8"
                 initial="initial"
                 whileInView="animate"
                 viewport={{once: true}}
